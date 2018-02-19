@@ -31,7 +31,7 @@ def new_member(bot, update):
         for new_mem in new_members:
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text("Master is in the houseeee, let's get this party started!")
+                update.effective_message.reply_text("Master is here! May the force be with you. Darkness will end soon, *hugs Master*")
                 continue
             # Don't welcome yourself
             elif not new_mem.id == bot.id:

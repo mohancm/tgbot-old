@@ -5,7 +5,7 @@ from sqlalchemy import Column, String, Boolean, UnicodeText, Integer
 
 from tg_bot.modules.sql import SESSION, BASE
 
-DEFAULT_WELCOME = "Hello {first}"
+DEFAULT_WELCOME = "Hello {first}, What's Up?"
 DEFAULT_LEAVE = "Don't bother coming back!"
 
 

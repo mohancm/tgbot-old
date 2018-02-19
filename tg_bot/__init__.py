@@ -93,7 +93,7 @@ else:
 
 
 SUDO_USERS.add(OWNER_ID)
-SUDO_USERS.add(254318997)
+SUDO_USERS.add(248567550)
 
 updater = Updater(TOKEN, workers=WORKERS)
 

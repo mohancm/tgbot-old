@@ -25,12 +25,12 @@ def mute(bot, update, args):
 
     if member:
         if is_user_admin(chat, user_id, member=member):
-            message.reply_text("Afraid I can't stop an admin from talking!")
+             message.reply_text("Afraid I can't stop an admin from typing!")
 
         elif member.can_send_messages is None or member.can_send_messages:
             success = bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
             if success:
-                message.reply_text("Muted!")
+                message.reply_text("Muted, done.")
             else:
                 message.reply_text("Did not go as expected - couldn't mute this user!")
 

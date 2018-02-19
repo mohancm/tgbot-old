@@ -19,7 +19,7 @@ def purge(bot, update):
                 bot.deleteMessage(chat.id, m_id)
             except BadRequest as err:
                 print(err)
-        bot.send_message(chat.id, "Purge complete.", 'Markdown')
+        bot.send_message(chat.id, "Purge complete, *Master*.", 'Markdown')
 
 
 @run_async

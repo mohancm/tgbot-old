@@ -119,10 +119,10 @@ def unlock(bot, update, args):
                 message.reply_text("Unlocked {} for everyone!".format(args[0]))
 
             else:
-                message.reply_text("What are you trying to unlock...? Try /locktypes for the list of lockables")
+                message.reply_text("/locktypes for the list of lockables")
 
         else:
-            bot.sendMessage(chat.id, "What are you trying to unlock...?")
+            bot.sendMessage(chat.id, "What are you trying to unlock?")
 
 
 @run_async
@@ -255,9 +255,9 @@ def list_locks(bot, update):
     locks = sql.get_locks(chat.id)
     restr = sql.get_restr(chat.id)
     if not (locks or restr):
-        res = "There are no current locks in this chat."
+        res = "Nothing locked here"
     else:
-        res = "This is the state of the current chat:\n"
+        res = "Current condition:\n"
         if locks:
             res += "\n - sticker = {}" \
                    "\n - audio = {}" \

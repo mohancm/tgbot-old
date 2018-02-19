@@ -19,16 +19,16 @@ def promote(bot, update, args):
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("Who is he? Doesn't sound like a user.")
         return
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Senpai, have a look he is an admin already!")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("I wish i cloud promote myself. Do it yourself lazy!.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -44,7 +44,7 @@ def promote(bot, update, args):
                                 can_pin_messages=bot_member.can_pin_messages,
                                 can_promote_members=bot_member.can_promote_members)
     if res:
-        message.reply_text("Successfully promoted!")
+        message.reply_text("Done, promoted!")
 
 
 @run_async
@@ -57,11 +57,11 @@ def demote(bot, update, args):
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("Who is it? a user? .")
         return
 
     if chat.get_member(user_id).status == 'creator':
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("Well, this guy right here , he is the creator of this chat. ?")
         return
 
     if not chat.get_member(user_id).status == 'administrator':
@@ -69,7 +69,7 @@ def demote(bot, update, args):
         return
 
     if user_id == bot.id:
-        update.effective_message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        update.effective_message.reply_text("I can't demote myself! You do it LAZYASS.")
         return
 
     try:
@@ -83,9 +83,9 @@ def demote(bot, update, args):
                                     can_pin_messages=False,
                                     can_promote_members=False)
         if res:
-            message.reply_text("Successfully demoted!")
+            message.reply_text("Done, demoted!")
         else:
-            message.reply_text("Could not demote.")
+            message.reply_text("Error 420 - could not demote.")
     except BadRequest:
         message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
                            "user, so I can't act upon them!")
@@ -138,7 +138,7 @@ def invite(bot, update):
             invitelink = bot.exportChatInviteLink(chat.id)
             update.effective_message.reply_text(invitelink)
         else:
-            update.effective_message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            update.effective_message.reply_text("I don't have enough permissions to do that, Senpai")
     else:
         update.effective_message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
 

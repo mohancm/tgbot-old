@@ -38,7 +38,7 @@ def ban(bot, update, args):
     res = update.effective_chat.kick_member(user_id)
     if res:
         bot.send_sticker(update.effective_chat.id, BAN_STICKER)  # banhammer marie sticker
-        message.reply_text("Banned!")
+        message.reply_text("*takes out Mjölnir* Banned!")
     else:
         message.reply_text("Well damn, I can't ban that user.")
 
@@ -108,7 +108,7 @@ def unban(bot, update, args):
 
     res = update.effective_chat.unban_member(user_id)
     if res:
-        message.reply_text("Yep, this user can join!")
+        message.reply_text("Yeah, he can join back now.!")
     else:
         message.reply_text("Hm, couldn't unban this person.")
 
