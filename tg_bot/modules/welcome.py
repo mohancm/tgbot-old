@@ -4,7 +4,8 @@ from telegram.utils.helpers import escape_markdown
 
 import tg_bot.modules.sql.welcome_sql as sql
 from tg_bot import dispatcher, OWNER_ID
-from tg_bot.modules.helper_funcs import user_admin, markdown_parser, escape_invalid_curly_brackets, \
+from tg_bot import dispatcher, BAN_STICKER
+from tg_bot.modules.helper_funcs import bot_admin, import user_admin, markdown_parser, escape_invalid_curly_brackets, \
     button_markdown_parser
 
 VALID_WELCOME_FORMATTERS = ['first', 'last', 'fullname', 'username', 'id', 'count', 'chatname', 'mention']
@@ -22,6 +23,7 @@ ENUM_FUNC_MAP = {
 
 
 @run_async
+@bot_admin
 def new_member(bot, update):
     chat = update.effective_chat
 
@@ -45,6 +47,16 @@ def new_member(bot, update):
                         fullname = "{} {}".format(first_name, new_mem.last_name)
                     else:
                         fullname = first_name
+                    
+                    #Thanos fag
+                    if fullname in ('THANOS', 'thanos')
+                    res = update.effective_chat.kick_member(new_mem.id)
+                        if res:
+                            bot.send_sticker(update.effective_chat.id, BAN_STICKER)  # banhammer marie sticker
+                            message.reply_text("*takes out Mjölnir* Banned!")
+                        else:
+                            message.reply_text("Well damn, I can't ban this Thanos fag.")
+                            
                     count = chat.get_members_count()
                     mention = "[{}](tg://user?id={})".format(first_name, new_mem.id)
                     if new_mem.username:
